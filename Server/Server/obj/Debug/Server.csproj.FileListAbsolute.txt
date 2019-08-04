@@ -1,1 +1,2 @@
 H:\Mode\Server\Server\bin\Debug\Server.exe.config
+G:\GitRepository\MyChatroom\Server\Server\bin\Debug\Server.exe.config
