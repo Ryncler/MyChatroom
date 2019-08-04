@@ -2,6 +2,6 @@ H:\Mode\Server\Server\bin\Debug\Server.exe.config
 G:\GitRepository\MyChatroom\Server\Server\bin\Debug\Server.exe.config
 G:\GitRepository\MyChatroom\Server\Server\bin\Debug\Server.exe
 G:\GitRepository\MyChatroom\Server\Server\bin\Debug\Server.pdb
-G:\GitRepository\MyChatroom\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 G:\GitRepository\MyChatroom\Server\Server\obj\Debug\Server.exe
 G:\GitRepository\MyChatroom\Server\Server\obj\Debug\Server.pdb
+G:\GitRepository\MyChatroom\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

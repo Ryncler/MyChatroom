@@ -12,9 +12,11 @@ namespace Server
     public class ServerConntrol
     {
         private Socket serverSocket;
+        private List<Socket> clientList; 
         public  ServerConntrol()
         {
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            clientList = new List<Socket>();
         }
         public void Start()
         {
@@ -32,6 +34,8 @@ namespace Server
             IPEndPoint point = client.RemoteEndPoint as IPEndPoint;
             Console.WriteLine("【"+point.Address+":"+point.Port+"】客户连接成功！");
 
+            clientList.Add(client);
+           
             Thread threadReceive = new Thread(Receive);
             threadReceive.IsBackground = true;
             threadReceive.Start(client);
@@ -45,22 +49,32 @@ namespace Server
             {
                 byte[] msg = new byte[1024];
                 int msgLeng = client.Receive(msg);
-                string inft=Encoding.UTF8.GetString(msg, 0, msgLeng);
-                if (inft == "天气")
-                {
-                    Console.WriteLine("今天柳州天气：多云");
-                }
-                else
-                {
-                    Console.WriteLine("【" + point.Address + ":" + point.Port + "】：" + inft);
-                }
+                string msgStr = "【" + point.Address + ":" + point.Port + "】"+ Encoding.UTF8.GetString(msg, 0, msgLeng);
+                Console.WriteLine(msgStr);
+                Broadcast(client, msgStr);
                 Receive(client);
             }
             catch
             {
                 Console.WriteLine("【" + point.Address + ":" + point.Port + "】退出聊天");
+                clientList.Remove(client);
             }
             
+        }
+        private void Broadcast(Socket client,string msg)
+        {
+            foreach (var item in clientList)
+            {
+                if (item == client)
+                {
+                   //client.Send(Encoding.UTF8.GetBytes(msg));
+                }
+                else
+                {
+                    client.Send(Encoding.UTF8.GetBytes(msg));
+                    //Console.WriteLine(msg);
+                }
+            } 
         }
     }
 }
