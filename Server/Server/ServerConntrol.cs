@@ -71,7 +71,7 @@ namespace Server
                 }
                 else
                 {
-                    client.Send(Encoding.UTF8.GetBytes(msg));
+                    item.Send(Encoding.UTF8.GetBytes(msg));
                     //Console.WriteLine(msg);
                 }
             } 
