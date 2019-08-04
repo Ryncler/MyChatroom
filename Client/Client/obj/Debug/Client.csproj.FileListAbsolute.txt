@@ -1,2 +1,6 @@
 H:\Mode\Client\Client\bin\Debug\Client.exe.config
 G:\GitRepository\MyChatroom\Client\Client\bin\Debug\Client.exe.config
+G:\GitRepository\MyChatroom\Client\Client\bin\Debug\Client.exe
+G:\GitRepository\MyChatroom\Client\Client\bin\Debug\Client.pdb
+G:\GitRepository\MyChatroom\Client\Client\obj\Debug\Client.exe
+G:\GitRepository\MyChatroom\Client\Client\obj\Debug\Client.pdb

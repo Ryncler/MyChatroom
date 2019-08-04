@@ -10,6 +10,9 @@ namespace Client
     {
         static void Main(string[] args)
         {
+            ClientConntrol client = new ClientConntrol();
+            client.Connent("127.0.0.1", 61100);
+            Console.ReadLine();
         }
     }
 }

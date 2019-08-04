@@ -10,6 +10,9 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            ServerConntrol server = new ServerConntrol();
+            server.Start();
+            Console.ReadLine();
         }
     }
 }

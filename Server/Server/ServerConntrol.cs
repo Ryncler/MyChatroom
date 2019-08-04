@@ -8,7 +8,7 @@ using System.Net;
 
 namespace Server
 {
-    class ServerConntrol
+    public class ServerConntrol
     {
         private Socket serverSocket;
         public  ServerConntrol()
