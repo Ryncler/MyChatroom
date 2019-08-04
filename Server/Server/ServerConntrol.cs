@@ -31,7 +31,36 @@ namespace Server
             Socket client = serverSocket.Accept();
             IPEndPoint point = client.RemoteEndPoint as IPEndPoint;
             Console.WriteLine("【"+point.Address+":"+point.Port+"】客户连接成功！");
+
+            Thread threadReceive = new Thread(Receive);
+            threadReceive.IsBackground = true;
+            threadReceive.Start(client);
             Accept();
+        }
+        private void Receive(object obj)
+        {
+            Socket client = obj as Socket;
+            IPEndPoint point = client.RemoteEndPoint as IPEndPoint;
+            try
+            {
+                byte[] msg = new byte[1024];
+                int msgLeng = client.Receive(msg);
+                string inft=Encoding.UTF8.GetString(msg, 0, msgLeng);
+                if (inft == "天气")
+                {
+                    Console.WriteLine("今天柳州天气：多云");
+                }
+                else
+                {
+                    Console.WriteLine("【" + point.Address + ":" + point.Port + "】：" + inft);
+                }
+                Receive(client);
+            }
+            catch
+            {
+                Console.WriteLine("【" + point.Address + ":" + point.Port + "】退出聊天");
+            }
+            
         }
     }
 }

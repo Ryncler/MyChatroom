@@ -19,5 +19,24 @@ namespace Client
             clientSocket.Connect(ip, port);
             Console.WriteLine("连接服务器成功！");
         }
+        private void Receive()
+        {
+            try
+            {
+                byte[] msg = new byte[1024];
+                int msgLeng = clientSocket.Receive(msg);
+                Console.WriteLine("服务器说：" + Encoding.UTF8.GetString(msg, 0, msgLeng));
+
+                Receive();
+            }
+            catch
+            {
+                Console.WriteLine("服务器炸了，已断开连接");
+            }
+        }
+        public void Send(string msg)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes(msg));
+        }
     }
 }
