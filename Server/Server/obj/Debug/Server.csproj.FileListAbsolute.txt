@@ -1,0 +1,1 @@
+H:\Mode\Server\Server\bin\Debug\Server.exe.config
